@@ -12,13 +12,34 @@ font=cv2.FONT_HERSHEY_SIMPLEX
 text="RR"
 # get boundary of this text
 textsize = cv2.getTextSize(text, font, 1, 2)[0]
-print (textsize[0])
-print (textsize[1])
-# get coords based on boundary
-textX = (image.shape[1] - textsize[0]) // 2
-textY = (image.shape[0] + textsize[1]) // 2
+textwidth=textsize[0]//len(text)
+#print (textwidth)
+#print("textsize",textsize[0])
+#print("imageshape",image.shape[0])
+y=textsize[0]//image.shape[0]
+#print(y)
+print('y',y)
+textsze=textsize[0]//textwidth
+charaf=image.shape[0]//textwidth
+#print(textsze)
+#print(charaf)
+x=charaf
+charai=0
 
-cv2.putText(image,text,(textX,textY),font,1,(0,0,0),2,cv2.LINE_AA)
+for yin in range(0,y):
+    # print("for")
+     if textsze-charaf>0:
+         string=text[charai:charaf]
+         charai=charaf
+         charaf=x+charaf
+         print(charaf)
+         cv2.putText(image,string,(30,30+yin*30),font,1,(0,0,0),2,cv2.LINE_AA)
+     else:
+         #    print(yin)
+         string=text[charai:]
+         cv2.putText(image,string,(30,30+yin*30),font,1,(0,0,0),2,cv2.LINE_AA)
+
+
 cv2.imshow("hey",image)
 
 if (cv2.waitKey(0) & 0xFF) == ord('c'):
