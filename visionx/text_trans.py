@@ -13,13 +13,12 @@ def translate_text(text,target='en'):
     print('Detected source language: {}'.format(
         result['detectedSourceLanguage']))
     
-example_text='''इनपुट उपकरण आपके 
-द्वारा चुनी गई भाषा में 
-वेब पर कहीं भी लिखना 
-आसान बनाता है. और जानें
+example_text='''好一朵美丽的茉莉花
+好一朵美丽的茉莉花
+芬芳美丽满枝極
+又香又白人人夸
+让我来将你摘下
+送给别人家
+茉莉花呀茉莉花'''
 
-इसे आज़माने के लिए, 
-नीचे अपनी भाषा और 
-इनपुट उपकरण चुनें और 
-लिखना आरंभ करें.'''
 translate_text(example_text)
